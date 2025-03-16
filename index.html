@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卡路里计算器</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>卡路里计算器</h1>
+            <div class="daily-total">
+                <span>今日摄入:</span>
+                <span id="total-calories">0</span>
+                <span>卡路里</span>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="food-search" placeholder="搜索食物...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <button id="add-custom-food-btn" class="add-custom-btn">
+                <i class="fas fa-plus"></i> 添加新食物
+            </button>
+        </div>
+
+        <div id="search-results" class="food-list"></div>
+
+        <div class="section-title">今日食谱</div>
+        <div id="today-meals" class="food-list"></div>
+    </div>
+
+    <div id="food-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-food-name"></h2>
+            <div class="nutrition-info">
+                <div class="nutrition-item">
+                    <span>卡路里:</span>
+                    <span id="modal-calories"></span>
+                </div>
+                <div class="nutrition-item">
+                    <span>蛋白质:</span>
+                    <span id="modal-protein"></span>
+                </div>
+                <div class="nutrition-item">
+                    <span>脂肪:</span>
+                    <span id="modal-fat"></span>
+                </div>
+                <div class="nutrition-item">
+                    <span>碳水化合物:</span>
+                    <span id="modal-carbs"></span>
+                </div>
+            </div>
+            <div class="add-to-meal">
+                <label for="food-amount">克数:</label>
+                <input type="number" id="food-amount" value="100" min="1">
+                <button id="add-to-meal-btn">添加到食谱</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-food-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-add-modal">&times;</span>
+            <h2>添加新食物</h2>
+            <form id="add-food-form">
+                <div class="form-group">
+                    <label for="new-food-name">食物名称:</label>
+                    <input type="text" id="new-food-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-food-calories">卡路里 (每100克):</label>
+                    <input type="number" id="new-food-calories" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-food-protein">蛋白质 (克):</label>
+                    <input type="number" id="new-food-protein" min="0" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-food-fat">脂肪 (克):</label>
+                    <input type="number" id="new-food-fat" min="0" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-food-carbs">碳水化合物 (克):</label>
+                    <input type="number" id="new-food-carbs" min="0" step="0.1" required>
+                </div>
+                <button type="submit" id="save-food-btn">保存</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="foods-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
